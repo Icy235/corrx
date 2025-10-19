@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+     <!-- Существующие мета-теги -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#E5E5E5" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/favicon-512x512.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon-48x48.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+
+    <!-- Прочие импорты -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/view_smeta.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <title>Corrx - Просмотр сметы</title>
+</head>
+<body>
+    <div class="view-smeta-container">
+        <!-- Header -->
+        <header class="view-header">
+            <a href="dashboard.html" class="back-btn" aria-label="Назад">
+                <img src="assets/icons/chevron-left.svg" alt="Назад">
+            </a>
+            <h1 class="page-title">Смета №001</h1>
+            <div class="header-actions">
+                <button class="share-btn" aria-label="Поделиться">
+                    <img src="assets/icons/share.svg" alt="Поделиться">
+                </button>
+                <button class="edit-btn" aria-label="Изменить">
+                    <img src="assets/icons/write.svg" alt="Изменить">
+                </button>
+                <div class="search-container">
+                    <img src="assets/icons/search.svg" alt="Поиск">
+                    <input type="text" class="search-input" placeholder="Поиск по смете...">
+                    <button class="search-clear">×</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="view-main">
+            <!-- Секция заказчика -->
+            <section class="form-section">
+                <h2 class="section-title">Заказчик</h2>
+                <div class="info-container">
+                    <div class="info-item">
+                        <img src="assets/icons/briefcase.svg" alt="Компания">
+                        <span class="info-label">Компания:</span>
+                        <span class="info-value">ООО "Агро-Сила"</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/icons/user.svg" alt="ФИО">
+                        <span class="info-label">Контактное лицо:</span>
+                        <span class="info-value">Иванов Иван Иванович</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/icons/phone.svg" alt="Телефон">
+                        <span class="info-label">Телефон:</span>
+                        <span class="info-value">+7 (999) 999-99-99</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/icons/mail.svg" alt="Почта">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value">example@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/icons/map.svg" alt="Адрес">
+                        <span class="info-label">Адрес:</span>
+                        <span class="info-value">Ул. Пушкина, д.Колотушкина, лит.А</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/icons/favorite.svg" alt="Пожелания">
+                        <span class="info-label">Особые пожелания:</span>
+                        <span class="info-value">Особые пожелания заказчика</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Общие сведения -->
+            <section class="general-info-section">
+                <h2 class="section-title">Общие сведения</h2>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="info-label">Статус сметы:</span>
+                        <div class="status-selector">
+                            <div class="status-option" data-status="draft">
+                                <div class="status-dot"></div>
+                                <span>Черновик</span>
+                            </div>
+                            <div class="status-option active" data-status="pending">
+                                <div class="status-dot"></div>
+                                <span>На согласовании</span>
+                            </div>
+                            <div class="status-option" data-status="in-progress">
+                                <div class="status-dot"></div>
+                                <span>В работе</span>
+                            </div>
+                            <div class="status-option" data-status="completed">
+                                <div class="status-dot"></div>
+                                <span>Завершена</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Тип фундамента:</span>
+                        <div class="info-value">Плита 150мм</div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Итоговая стоимость (с НДС):</span>
+                        <div class="price-value">2 450 000 ₽</div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Итоговая стоимость (без НДС):</span>
+                        <div class="price-value">2 050 000 ₽</div>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Стоимость м²:</span>
+                        <div class="price-value">6 805 ₽</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Разделы сметы -->
+            <div class="smeta-sections">
+                <!-- Производство -->
+                <section class="smeta-section active">
+                    <div class="section-header">
+                        <h3>Производство</h3>
+                        <div class="section-price">1 850 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Основные параметры</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-item" data-param="area">
+                                    <span class="param-label">Площадь:</span>
+                                    <div class="param-value">360 <span class="unit">м²</span></div>
+                                </div>
+                                <div class="param-item" data-param="width">
+                                    <span class="param-label">Ширина:</span>
+                                    <div class="param-value">12 <span class="unit">м</span></div>
+                                </div>
+                                <div class="param-item" data-param="length">
+                                    <span class="param-label">Длина:</span>
+                                    <div class="param-value">30 <span class="unit">м</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Гофра</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес гофры:</span>
+                                        <div class="param-value">1 250 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена гофры:</span>
+                                        <div class="param-value">187 500 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>4 полоса</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес 4 полоса:</span>
+                                        <div class="param-value">980 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена 4 полоса:</span>
+                                        <div class="param-value">147 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Арка</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес арки:</span>
+                                        <div class="param-value">650 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена арки:</span>
+                                        <div class="param-value">97 500 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Прогоны (швеллеры)</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес прогонов:</span>
+                                        <div class="param-value">1 100 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена прогонов:</span>
+                                        <div class="param-value">165 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Секция</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Кол-во секций:</span>
+                                        <div class="param-value">6 <span class="unit">шт</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Длина секций:</span>
+                                        <div class="param-value">5 <span class="unit">м</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Длина развертки:</span>
+                                        <div class="param-value">30 <span class="unit">м</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Брусок 50 дерево</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес (кубометры):</span>
+                                        <div class="param-value">2.5 <span class="unit">м³</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена кубометра:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Болты</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Кол-во:</span>
+                                        <div class="param-value">240 <span class="unit">шт</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена болтов:</span>
+                                        <div class="param-value">12 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Связи</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Кол-во:</span>
+                                        <div class="param-value">48 <span class="unit">шт</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена связи:</span>
+                                        <div class="param-value">24 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Вес связи:</span>
+                                        <div class="param-value">360 <span class="unit">кг</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Закладные</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Кол-во:</span>
+                                        <div class="param-value">24 <span class="unit">шт</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена:</span>
+                                        <div class="param-value">36 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Кровля</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес:</span>
+                                        <div class="param-value">1 800 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена:</span>
+                                        <div class="param-value">270 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Торцы</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Вес:</span>
+                                        <div class="param-value">450 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена:</span>
+                                        <div class="param-value">67 500 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Вес</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Итого:</span>
+                                        <div class="param-value">7 040 <span class="unit">кг</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Вес на м²:</span>
+                                        <div class="param-value">19.56 <span class="unit">кг/м²</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Цена итого</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Цена за м²:</span>
+                                        <div class="param-value">5 139 <span class="unit">₽/м²</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Итого цена:</span>
+                                        <div class="param-value">1 850 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Продажная цена:</span>
+                                        <div class="param-value">2 050 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Продажная цена м²:</span>
+                                        <div class="param-value">5 694 <span class="unit">₽/м²</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Монтаж -->
+                <section class="smeta-section active">
+                    <div class="section-header">
+                        <h3>Монтаж</h3>
+                        <div class="section-price">350 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Монтажные работы</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Монтажники:</span>
+                                        <div class="param-value">4 <span class="unit">чел</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Монтаж на готовый фундамент:</span>
+                                        <div class="param-value">7 <span class="unit">дней</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена монтажа (люди):</span>
+                                        <div class="param-value">140 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена монтажа (техника):</span>
+                                        <div class="param-value">80 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Расстояние:</span>
+                                        <div class="param-value">25 <span class="unit">км</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена доставки монтажников:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Проживание монтажников:</span>
+                                        <div class="param-value">35 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Плита -->
+                <section class="smeta-section active foundation-section" data-foundation-type="slab">
+                    <div class="section-header">
+                        <h3>Плита</h3>
+                        <div class="section-price">180 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Фундамент</h4>
+                                <div class="subsection-price">120 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Цена монтажа фундамент:</span>
+                                        <div class="param-value">45 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена бетона:</span>
+                                        <div class="param-value">60 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена арматуры:</span>
+                                        <div class="param-value">25 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена опалубки:</span>
+                                        <div class="param-value">20 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Электрика</h4>
+                                <div class="subsection-price">25 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость электрики:</span>
+                                        <div class="param-value">25 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Утепление</h4>
+                                <div class="subsection-price">20 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость утепления:</span>
+                                        <div class="param-value">20 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Подготовительные работы</h4>
+                                <div class="subsection-price">15 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость подготовительных работ:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Сваи (скрыто, так как выбран тип "Плита") -->
+                <section class="smeta-section foundation-section" data-foundation-type="piles" style="display: none;">
+                    <div class="section-header">
+                        <h3>Сваи</h3>
+                        <div class="section-price">120 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Фундамент</h4>
+                                <div class="subsection-price">80 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Сваи:</span>
+                                        <div class="param-value">16 <span class="unit">шт</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Периметр швеллера:</span>
+                                        <div class="param-value">84 <span class="unit">м</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена монтажа фундамента:</span>
+                                        <div class="param-value">35 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Периметр цена с установкой:</span>
+                                        <div class="param-value">45 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Электрика</h4>
+                                <div class="subsection-price">15 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость электрики:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Утепление</h4>
+                                <div class="subsection-price">10 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость утепления:</span>
+                                        <div class="param-value">10 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Подготовительные работы</h4>
+                                <div class="subsection-price">15 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость подготовительных работ:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Лента (скрыто, так как выбран тип "Плита") -->
+                <section class="smeta-section foundation-section" data-foundation-type="strip" style="display: none;">
+                    <div class="section-header">
+                        <h3>Лента</h3>
+                        <div class="section-price">150 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Фундамент</h4>
+                                <div class="subsection-price">100 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Цена монтажа фундамент:</span>
+                                        <div class="param-value">40 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена бетона:</span>
+                                        <div class="param-value">45 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена арматуры:</span>
+                                        <div class="param-value">20 000 <span class="unit">₽</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Цена опалубки:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Электрика</h4>
+                                <div class="subsection-price">20 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость электрики:</span>
+                                        <div class="param-value">20 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Утепление</h4>
+                                <div class="subsection-price">15 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость утепления:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Подготовительные работы</h4>
+                                <div class="subsection-price">15 000 ₽</div>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Стоимость подготовительных работ:</span>
+                                        <div class="param-value">15 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Прибыль -->
+                <section class="smeta-section active">
+                    <div class="section-header">
+                        <h3>Прибыль</h3>
+                        <div class="section-price">200 000 ₽</div>
+                        <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="subsection">
+                            <div class="subsection-header">
+                                <h4>Расчет прибыли</h4>
+                                <img src="assets/icons/chevron-down.svg" alt="Свернуть" class="collapse-icon">
+                            </div>
+                            <div class="subsection-content">
+                                <div class="param-grid">
+                                    <div class="param-item">
+                                        <span class="param-label">Цена м²:</span>
+                                        <div class="param-value">6 805 <span class="unit">₽/м²</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Себестоимость:</span>
+                                        <div class="param-value">5 694 <span class="unit">₽/м²</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Прибыль с м²:</span>
+                                        <div class="param-value">1 111 <span class="unit">₽/м²</span></div>
+                                    </div>
+                                    <div class="param-item">
+                                        <span class="param-label">Прибыль с площади:</span>
+                                        <div class="param-value">400 000 <span class="unit">₽</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальное окно "Поделиться" -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Поделиться сметой</h3>
+                <button class="close-modal" id="closeShareModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <button class="share-option-btn" id="generateProposal">
+                        <img src="assets/icons/file-text.svg" alt="КП">
+                        <span>Сформировать КП</span>
+                        <span class="option-description">PDF документ для заказчика</span>
+                    </button>
+                    
+                    <button class="share-option-btn" id="sendAsText">
+                        <img src="assets/icons/message.svg" alt="Текст">
+                        <span>Отправить текстом</span>
+                        <span class="option-description">Все параметры сметы</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно текстового представления -->
+    <div id="textPreviewModal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3>Текстовое представление сметы</h3>
+                <button class="close-modal" id="closeTextPreview">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="text-preview-actions">
+                    <button class="action-btn" id="copyAllText">
+                        <img src="assets/icons/copy.svg" alt="Копировать">
+                        <span>Копировать всё</span>
+                    </button>
+                </div>
+                <div class="text-preview-content">
+                    <pre id="smetaTextContent"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/view_smeta.js"></script>
+</body>
+</html>

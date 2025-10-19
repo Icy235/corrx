@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Существующие мета-теги -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#E5E5E5" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/favicon-512x512.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon-48x48.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+
+    <!-- Прочие импорты -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/create_smeta.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <title>Corrx - Создание сметы</title>
+</head>
+<body>
+    <div class="create-smeta-container">
+        <!-- Header -->
+        <header class="create-header">
+            <a href="dashboard.html" class="back-btn" aria-label="Назад">
+                <img src="assets/icons/chevron-left.svg" alt="Назад">
+            </a>
+            <h1 class="page-title">Создание сметы</h1>
+            <button class="save-btn" aria-label="Сохранить">
+                <img src="assets/icons/download.svg" alt="Сохранить">
+            </button>
+        </header>
+
+        <main class="create-main">
+            <!-- Секция заказчика -->
+            <section class="form-section">
+                <h2 class="section-title">Заказчик</h2>
+                <div class="input-group">
+                    <div class="input_container required">
+                        <img src="assets/icons/briefcase.svg" alt="Компания">
+                        <input class="input_area" placeholder="Компания *" required>
+                    </div>
+                    <div class="contact-fields">
+                        <div class="contact-field original-field" data-type="name">
+                            <div class="input_container">
+                                <img src="assets/icons/user.svg" alt="ФИО">
+                                <input class="input_area" placeholder="ФИО">
+                                <button class="field-action-btn add-btn" data-type="name">
+                                    <img src="assets/icons/add.svg" alt="Добавить">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="contact-field original-field" data-type="phone">
+                            <div class="input_container">
+                                <img src="assets/icons/phone.svg" alt="Телефон">
+                                <input class="input_area" type="tel" placeholder="Номер телефона">
+                                <button class="field-action-btn add-btn" data-type="phone">
+                                    <img src="assets/icons/add.svg" alt="Добавить">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="contact-field original-field" data-type="email">
+                            <div class="input_container">
+                                <img src="assets/icons/mail.svg" alt="Почта">
+                                <input class="input_area" type="email" placeholder="Почта">
+                                <button class="field-action-btn add-btn" data-type="email">
+                                    <img src="assets/icons/add.svg" alt="Добавить">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция производства -->
+            <section class="form-section">
+                <h2 class="section-title">Производство</h2>
+                <div class="input-group">
+                    <div class="input_container required">
+                        <input class="input_area" type="number" placeholder="Длина ангара *" required>
+                        <span class="unit">м</span>
+                    </div>
+                    
+                    <div class="dropdown required">
+                        <button class="dropdown-toggle" data-dropdown="width">
+                            <span class="dropdown-text">Ширина пролета *</span>
+                            <img src="assets/icons/chevron-down.svg" alt="Раскрыть" class="dropdown-arrow">
+                        </button>
+                        <ul class="dropdown-menu" id="width-dropdown">
+                            <li class="dropdown-item" data-value=10>10 м</li>
+                            <li class="dropdown-item" data-value=12>12 м</li>
+                            <li class="dropdown-item" data-value=15>15 м</li>
+                            <li class="dropdown-item" data-value=18>18 м</li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown required">
+                        <button class="dropdown-toggle" data-dropdown="foundation">
+                            <span class="dropdown-text">Тип фундамента *</span>
+                            <img src="assets/icons/chevron-down.svg" alt="Раскрыть" class="dropdown-arrow">
+                        </button>
+                        <ul class="dropdown-menu" id="foundation-dropdown">
+                            <li class="dropdown-item" data-value="slab">Плита 150 мм</li>
+                            <li class="dropdown-item" data-value="piles">Сваи</li>
+                            <li class="dropdown-item" data-value="strip">Лента</li>
+                            <li class="dropdown-item" data-value="none">Без фундамента</li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown required">
+                        <button class="dropdown-toggle" data-dropdown="walls">
+                            <span class="dropdown-text">Торцевые стены *</span>
+                            <img src="assets/icons/chevron-down.svg" alt="Раскрыть" class="dropdown-arrow">
+                        </button>
+                        <ul class="dropdown-menu" id="walls-dropdown">
+                            <li class="dropdown-item" data-value="standard">Стандартные</li>
+                            <li class="dropdown-item" data-value="custom">Индивидуальные</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция монтажа -->
+            <section class="form-section">
+                <h2 class="section-title">Монтаж</h2>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <span class="toggle-text">Включить монтаж в смету</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" class="toggle-input" id="installation-toggle">
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Дополнительные поля монтажа (появляются при включении) -->
+                <div class="installation-extra" id="installation-extra" style="display: none;">
+                    <div class="input-group">
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <span class="toggle-text">Техника заказчика</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" class="toggle-input" id="customer-equipment-toggle">
+                                    <span class="toggle-slider"></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <span class="toggle-text">Место проживания рабочих</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" class="toggle-input" id="worker-accommodation-toggle">
+                                    <span class="toggle-slider"></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="input_container">
+                           
+                            <input class="input_area" type="number" placeholder="Расстояние до базы">
+                            <span class="unit">км</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция дополнительных опций -->
+             <section class="form-section">
+                <h2 class="section-title">Дополнительные опции</h2>
+                <div class="input-group">
+                    <!-- Утепление -->
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Утепление</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" class="toggle-input" id="insulation-toggle">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Электрика -->
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Электрика</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" class="toggle-input" id="electrics-toggle">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Сваи -->
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Сваи</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" class="toggle-input" id="piles-toggle">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Особые пожелания -->
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Особые пожелания</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" class="toggle-input" id="special-requests-toggle">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Поле особых пожеланий (появляется при включении) -->
+                    <div class="special-requests-extra" id="special-requests-extra" style="display: none;">
+                        <div class="input_container">
+                            <img src="assets/icons/favorite.svg" alt="Пожелания">
+                            <textarea class="input_area textarea" placeholder="Особые пожелания заказчика" rows="3"></textarea>
+                        </div>
+                    </div>
+
+        
+                <!-- Геолокация базы -->
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Геолокация базы</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" class="toggle-input" id="geolocation-toggle">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Поле адреса (появляется при включении) -->
+                    <div class="geolocation-extra" id="geolocation-extra" style="display: none;">
+                        <div class="input_container">
+                            <img src="assets/icons/map-pin.svg" alt="Адрес">
+                            <input class="input_area" type="text" placeholder="Адрес" id="address-input" readonly>
+                            <button class="map-btn" id="open-map-btn" aria-label="Открыть карту">
+                                <img src="assets/icons/map.svg" alt="Карта">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Кнопка создания -->
+        <div class="create-actions">
+            <button class="create-btn">Создать смету</button>
+        </div>
+
+        <!-- Модальное окно карты -->
+        <div id="map-modal" class="modal" style="display: none;">
+            <div class="modal-content map-modal-content">
+                <div class="modal-header">
+                    <h3>Выберите местоположение базы</h3>
+                    <button class="close-modal" id="close-map-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-container map-search">
+                        <img src="assets/icons/search.svg" alt="Поиск">
+                        <input type="text" id="map-search-input" placeholder="Поиск по адресу...">
+                    </div>
+                    <div id="yandex-map"></div>
+                    <div class="selected-address" id="selected-address" style="display: none;">
+                        <strong>Выбранный адрес:</strong>
+                        <span id="address-text"></span>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-secondary" id="cancel-map">Отмена</button>
+                        <button class="btn-primary" id="confirm-location" disabled>Выбрать адрес</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение Яндекс Карт API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ_API&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/create_smeta.js"></script>
+</body>
+</html>

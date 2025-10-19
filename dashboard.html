@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Существующие мета-теги -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#E5E5E5" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/favicon-512x512.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon-48x48.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+
+    <!-- Прочие импорты -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <title>Corrx - Панель управления</title>
+</head>
+<body>
+    <noscript>
+        <div class="error-state">
+            <h3>Ошибка</h3>
+            <p>Для работы приложения требуется включить JavaScript.</p>
+        </div>
+    </noscript>
+    <div class="dashboard-container">
+        <!-- Header с настройками -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="welcome-container">
+                    <h3 class="welcome-text"><span class="welcome-greeting"></span>, <span id="userName"></span></h3>
+                </div>
+                <div class="header-actions">
+                    <div class="search-container" id="searchContainer">
+                        <img src="assets/icons/search.svg" alt="Поиск" class="search-icon">
+                        <input class="search-input" id="searchInput" placeholder="Поиск по сметам" aria-label="Поиск по сметам">
+                    </div>
+                    <a href="settings.html" class="settings-btn" aria-label="Настройки">
+                        <img src="assets/icons/settings.svg" alt="Настройки">
+                    </a>
+                    <button class="logout-btn" aria-label="Выйти" onclick="clearUserSession(); window.location.href='login_page.html'">
+                        <img src="assets/icons/logout.svg" alt="Выйти">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="dashboard-main">
+            <!-- Заголовок с фильтрами и количеством смет -->
+            <div class="dashboard-header-section">
+                <h1 class="dashboard-title">Мои заказы</h1>
+                <div class="filter-container">
+                    <select id="statusFilter" aria-label="Фильтр по статусу">
+                        <option value="">Все статусы</option>
+                        <option value="draft">Черновик</option>
+                        <option value="pending">На согласовании</option>
+                        <option value="in-progress">В работе</option>
+                        <option value="completed">Завершена</option>
+                        <option value="archived">Архив</option>
+                    </select>
+                </div>
+                <div class="smeta-count" id="smetaCount">Загрузка...</div>
+            </div>
+
+            <!-- Сообщение о результатах поиска -->
+            <div class="search-results-info" id="searchResultsInfo" style="display: none;"></div>
+
+            <!-- Контейнер для списка смет -->
+            <div class="smeta-list" id="smetaList" aria-live="polite">
+                <div class="loading-state">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+
+            <!-- Состояние "нет смет" -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-icon">
+                    <img src="assets/icons/archive-input.svg" alt="Нет смет">
+                </div>
+                <h3>У вас пока нет заказов</h3>
+                <p>Добавьте первый заказ, нажав на кнопку "+" в правом нижнем углу</p>
+            </div>
+
+            <!-- Состояние ошибки -->
+            <div class="error-state" id="errorState" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <h3>Ошибка загрузки</h3>
+                <p id="errorMessage">Произошла ошибка при загрузке данных</p>
+                <button class="retry-btn" onclick="window.location.reload()">Повторить</button>
+                <button class="report-btn" onclick="reportError()">Отправить отчёт</button>
+            </div>
+        </main>
+
+        <!-- Кнопка добавления новой сметы -->
+        <a href="create_new_smeta.html" class="add-smeta-btn" aria-label="Добавить смету">
+            <img src="assets/icons/add.svg" alt="Добавить смету">
+        </a>
+
+        <!-- Модальное окно для подтверждения удаления -->
+        <div class="modal" id="deleteModal" style="display: none;">
+            <div class="modal-content">
+                <h3>Подтверждение удаления</h3>
+                <p>Вы уверены, что хотите удалить эту смету?</p>
+                <div class="modal-actions">
+                    <button class="modal-btn cancel-btn">Отмена</button>
+                    <button class="modal-btn confirm-btn">Удалить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контейнер для тост-уведомлений -->
+        <div id="toastContainer" class="toast-container"></div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

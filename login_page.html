@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+     <!-- Существующие мета-теги -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#E5E5E5" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/favicon-512x512.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon-48x48.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+
+    <!-- Прочие импорты -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <title>Corrx - Вход</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <img class="logo" alt="Corrx Logo" src="assets/icons/LogoFav.svg">
+            <div class="app-name">Corrx</div>
+            
+            <form class="login-form" id="loginForm"  autocomplete="off">
+                <div class="input-group">
+                    <div class="input_container">
+                        <img src="assets/icons/user.svg" alt="Логин">
+                        <input class="input_area" name="username" placeholder="Логин" required  autocomplete="off" > 
+                    </div>
+                    <div class="input_container">
+                        <img src="assets/icons/lock-close.svg" alt="Пароль">
+                        <input class="input_area" name="password" placeholder="Пароль" type="password" required autocomplete="off">
+                    </div>
+                                    
+                
+                </div>
+                
+              <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        Запомнить меня
+                    </label>
+                </div>
+                
+                <button type="submit" class="login-button" id="loginButton">
+                    <span class="button-text">Вход</span>
+                    <div class="loading-spinner" style="display: none;"></div>
+                </button>
+                
+                <div class="error-message" id="errorMessage" style="display: none;"></div>
+            </form>
+            
+           
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
